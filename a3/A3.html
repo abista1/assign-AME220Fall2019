@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Resume</title>
+
+<link rel="stylesheet" href="resume.css">
+
+</head>
+
+<body>
+<div id="top">
+<h1>Anup Bista</h1>
+<a href= 'https://www.google.com/maps/place/University+Towers/@33.4252867,-111.9380109,17z/data=!3m1!4b1!4m5!3m4!1s0x872b08d8f2b43f4d:0x49ed48c0ccf5228f!8m2!3d33.4252867!4d-111.9358222' target ='_blank'> 525 S Forest Ave, Tempe, AZ 85281 .   </a>
+<a href= "mailto:abista@asu.edu" target = "_blank">abista@asu.edu . </a>
+<a href="tel:4802777785" target = "_blank"> 4802777785 . </a>
+</div>
+
+<p>Strong in design and integration problem-solving skills. Expert in Java, C#, .NET, and T-SQL with database analysis and design. Skilled in developing business plans, requirements specifications, user documentation, and
+  architectural systems research. Strong written and verbal communications.</p>
+
+
+
+<button class="accordion"><h2>Education</h2></button>
+<div class ="panel">
+
+<table style="width:75%">
+  <tr>
+    <th>Level</th>
+    <th>Description</th>
+    <th>Year</th>
+  </tr>
+  <tr>
+    <td>CSE 240</td>
+    <td>Introduces the procedural (C/C++), applicative (Scheme/LISP), and declarative (Prolog)
+languages. </td>
+    <td>2018</td>
+  </tr>
+  <tr>
+    <td>CPI 220</td>
+    <td>This course is an introduction to algorithms and data structures that are used in the development of software.</td>
+    <td>2018</td>
+  </tr>
+  <tr>
+    <td>CSE 205</td>
+    <td>Problem solving by using an object-oriented programming language. Introduction to data structures. </td>
+    <td>2017</td>
+  </tr>
+</table>
+</div>
+
+<button class="accordion"><h2>Experience</h2></button>
+<div class="panel">
+<ul>
+  <li>Teaching Assistant  </li>
+  <li>Tutor</li>
+  <li>UPS Store clerk</li>
+</ul>
+</div>
+
+
+
+<button class="accordion"><h2>References</h2></button>
+<div class="panel">
+<ol type="1">
+  <li>Faith Durban, America Reads supervisior, fdurban@asu.edu</li>
+  <li>Bibek Dallakoti, UPS Store manager, bdallakoti@gmail.com</li>
+  <li>Anish Khadka, Instructor, akhadka@asu.edu</li>
+</ol>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+</body>
+</html>
