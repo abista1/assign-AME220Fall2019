@@ -2,53 +2,63 @@
 <html>
 <head>
   <title>Slide Show</title>
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
 
 
 <script>
 var currentSlide = 1;
+
+
+
+
+
 function goToSlide(n)
 {
-  $("img").fadeOut();
-  $("img:nth-of-type(" + n + ")").stop().fadeIn();
-  $(".num").removeClass("selected");
-  $(".num:nth-of-type(" + n + ")").addClass("selected");
-  currentSlide = n;
+var i;
+var slides = document.getElementsByClassName("mySlides");
+var number = document.getElementsByClassName("num");
+if(n>slides.length) {currentSlide = 1};
+if(n<1) { currentSlide = slides.length};
+for (i=0; i<slides.length; i++){
+  slides[i].style.display="none";
+};
+slides[currentSlide - 1].style.display = "block";
+
+
+for(var j = 0; j < number.length; j++){
+  number[j].className = number[j].className.replace("active","");
+};
+number[currentSlide-1].className += "active";
+
 }
+
 function goPrev()
 {
-    var nextSlide = currentSlide - 1
-    if(nextSlide == 0){
-      nextSlide = 4;
-    }
-    goToSlide(nextSlide);
+
+    goToSlide(currentSlide-=1);
 }
 function goNext()
 {
-  var nextSlide = currentSlide + 1
-  if(nextSlide == 5){
-    nextSlide = 1;
-  }
-  goToSlide(nextSlide);
+
+  goToSlide(currentSlide+=1);
 }
 function one()
 {
-  goToSlide(1);
+  goToSlide(currentSlide=1);
 }
+
 function two()
 {
-  goToSlide(2);
+  goToSlide(currentSlide=2);
 }
+
 function three()
 {
-  goToSlide(3);
+  goToSlide(currentSlide=3);
 }
+
 function four()
 {
-  goToSlide(4);
+  goToSlide(currentSlide=4);
 }
 </script>
 
@@ -81,6 +91,8 @@ img{
     position: fixed;
     margin-left: 100px;
     text-align: center;
+
+
 }
 #num{
   padding: 20px;
@@ -88,14 +100,29 @@ img{
   border-radius: 50%;
 }
 
+.fade{
+  animation-name: fade;
+  animation-duration: 0.5s;
+}
 </style>
 </head>
 
 <body onload='goToSlide(1)'>
+  <div class = "container">
+  <div class ="mySlides fade">
   <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Aegotheles_chrisoptus_-_Catlereigh_Nature_Reserve.jpg/300px-Aegotheles_chrisoptus_-_Catlereigh_Nature_Reserve.jpg'>
+</div>
+<div class ="mySlides fade">
   <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Turnix_varius_-_Castlereigh_nature_reserve.jpg/450px-Turnix_varius_-_Castlereigh_nature_reserve.jpg'>
+</div>
+<div class ="mySlides fade">
   <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Acanthorhynchus_tenuirostris_-_Mogo_Campground.jpg/450px-Acanthorhynchus_tenuirostris_-_Mogo_Campground.jpg'>
+</div>
+<div class ="mySlides fade">
   <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Eopsaltria_australis_-_Mogo_Campground.jpg/450px-Eopsaltria_australis_-_Mogo_Campground.jpg'>
+</div>
+</div>
+
   <button id='prev' onclick='goPrev()'> Prev </button>
   <button id='next' onclick='goNext()'> Next </button>
 
